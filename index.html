@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+    :root{
+      --primary-color: hsl(25,97%,53%);
+      --true-white: hsl(0,0%,100%);
+      --white-color: hsl(257,12%,63%);
+      --medium-grey:hsl(216,12%,54%);
+      --dark-blue:hsl(213,19%,18%);
+      --med-blue:#1C232D;
+      --very-dark-blue:hsl(216,12%,8%);
+      --dark-grey: #262F38;
+      font-size: 14px;
+      font-family: 'Overpass', sans-serif;
+      color:var(--medium-grey);
+    }
+   
+    body{
+      overflow: hidden;
+    }
+    
+
+    /* create classes for all colors */
+    .primary-color{
+      color: var(--primary-color);
+    }
+    .white-color{
+      color: var(--white-color);
+    }
+    .medium-grey{
+      color: var(--medium-grey);
+    }
+    .dark-blue{
+      color: var(--dark-blue);
+    }
+    .very-dark-blue{
+      color: var(--very-dark-blue);
+    }
+    .true-white{
+      color: var(--true-white);
+    }
+
+    .regular-font{
+      font-weight: 400;
+    }
+
+    .title{
+      font-size:28px;
+      margin-bottom:10px ;
+      margin-top: 20px;
+    }
+    .text{
+      line-height: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .center-text{
+      text-align: center;
+    }
+    
+    .submit-button{
+      all:unset;
+      background-color: var(--primary-color);
+      width: 100%;
+      height: 42px;
+      border-radius: 25px;
+      cursor: pointer;
+      color: var(--true-white);
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .submit-button:active{
+      background-color: var(--true-white);
+      color: var(--primary-color);
+    }
+
+    .container{
+      width: 100vw;
+      height: 100vh;
+      background: #141519;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .card{
+      width: 330px;
+      height: 330px;
+      padding: 30px;
+      background: radial-gradient(circle at top, var(--white-color) -95%,var(--dark-blue), var(--med-blue)75%, var(--very-dark-blue) 110% );
+      border-radius: 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    
+    .circle{
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--dark-grey);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    
+    .number-item input[type="checkbox"]{
+      display: none;
+    }
+
+    .number-item label{
+      cursor: pointer;
+    }
+
+    .number-item label:hover {
+      cursor: pointer;
+      color: var(--true-white);
+      background-color: var(--medium-grey);
+    }
+
+    .number-item input[type="checkbox"]:checked + label {
+      color: var(--true-white);
+      background-color: var(--primary-color);
+    }
+
+    .number-selector{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 5px 0px;
+      cursor:pointer;
+      margin-bottom: 20px;
+    }
+    .rating{
+      display:flex;
+    }
+    .thank-you{
+      display:flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .selected-text{
+      color:var(--primary-color);
+      background-color: var(--dark-grey);
+      padding: 8px 20px;
+      font-size:15px;
+      border-radius: 20px;
+      text-align: center;
+    }
+    .last-words{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body class="container">
+
+  <!-- Rating state start -->
+  <div class="card rating">
+    <div class="circle float-left">
+      <object data="./images/icon-star.svg"  type="image/svg+xml" class="icon-star"></object>
+    </div >
+    <h1 class="true-white regular-font title">
+      How did we do?
+    </h1>
+
+    <span class="text">
+      Please let us know how we did with your support request. All feedback is appreciated 
+      to help us improve our offering!
+    </span>
+
+    <div class="number-selector">
+      <div class="number-item">
+        <input type="checkbox" id="cbox1" value="1">
+        <label class="circle" for="cbox1">1</label>
+      </div>
+      <div class="number-item">
+        <input type="checkbox" id="cbox2" value="2">
+        <label class="circle" for="cbox2">2</label>
+      </div>
+      <div class="number-item">
+        <input type="checkbox" id="cbox3" value="3">
+        <label class="circle" for="cbox3">3</label>
+      </div>
+      <div class="number-item">
+        <input type="checkbox" id="cbox4" value="4">
+        <label class="circle" for="cbox4">4</label>
+      </div>
+      <div class="number-item">
+        <input type="checkbox" id="cbox5" value="5">
+        <label class="circle" for="cbox5">5</label>
+      </div>
+            <!-- <span class="medium-grey" id="number-1">1</span> -->
+      <!-- 
+      <span class="circle medium-grey" id="number-2">2</span>
+      <span class="circle medium-grey" id="number-3">3</span>
+      <span class="circle medium-grey" id="number-4">4</span>
+      <span class="circle medium-grey" id="number-5">5</span> -->
+    </div>
+      
+    <button class="submit-button">
+      SUBMIT
+    </button>
+
+  </div>
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+  <div class="card thank-you">
+
+    <div>
+      <object data="./images/illustration-thank-you.svg"  type="image/svg+xml" class="icon-star"></object>
+    </div>
+    <span class="selected-text"></span>
+    <div class="last-words">
+      <h1 class="true-white regular-font title">
+        Thank you!
+      </h1>
+      <span class="text center-text">
+        We appreciate you taking the time to give a rating.<br/>If you ever need more support, 
+        don’t hesitate to get in touch!
+      </span>
+    </div>
+  </div>
+
+  <!-- You selected --add rating here-- out of 5 -->
+
+  <!-- Thank you! -->
+<!-- 
+  We appreciate you taking the time to give a rating. If you ever need more support, 
+  don’t hesitate to get in touch! -->
+
+  <!-- Thank you state end -->
+
+  <script src="./src/index.js"></script>
+</body>
+</html>
